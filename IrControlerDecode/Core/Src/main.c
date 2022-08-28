@@ -62,10 +62,9 @@ int bit = 0;
 int leitura = 0;
 
 uint16_t microsecondsTime;
-uint32_t timeOnTest;
-uint32_t timeOffTest;
-uint32_t timeOn[32];
-uint32_t timeOff[32];
+uint32_t timeParity;
+
+uint32_t timeSignal[32];
 
 int flag = 0;
 int flagCode = 0;
@@ -78,38 +77,20 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 }
 
 void getCode(uint16_t time){
-	/*if (time > 10000){
-		getCode();
-	} else if (flag == 0) {
-		time = 0;
+	if(time > 10000){
 		flag = 1;
-	} else if (flag == 1) {
-		timeOnTest = microsecondsTime;
-		flag = 0;
-		microsecondsTime = 0;
-		bit = 0;
-	}*/
-
-	if(time > 10000)
-	{
-		flag = 1;
-		timeOnTest = time;
-	} else
-	{
-		if(flag == 1)
-		{
-			timeOn[bit] = time;
+		timeParity = time;
+	} else{
+		if(flag == 1){
+			timeSignal[bit] = time;
 			bit++;
 		}
 	}
-
-
-
 	if(bit >= 32){
 		for(int j = 0; j < 32; j++){
-			if((timeOn[j] > 100 && timeOn[j] < 120)) {
+			if((timeSignal[j] > 100 && timeSignal[j] < 120)) {
 				decodeSignal = (decodeSignal << 1) + 1;
-			} else if (timeOn[j] > 210 && timeOn[j] < 230) {
+			} else if (timeSignal[j] > 210 && timeSignal[j] < 230) {
 				decodeSignal = decodeSignal << 1;
 			}
 		}
@@ -118,15 +99,12 @@ void getCode(uint16_t time){
 		decodeSignal = decodeSignal - 2139000000;
 		if (decodeSignal > 0) {
 			Signal = decodeSignal;
+		} else {
+			return;
 		}
 	}
 		decodeSignal = 0;
 }
-
-void sinalDecode() {
-
-}
-
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef * htim) {
 	if(htim == &htim1) {
