@@ -55,7 +55,7 @@ static void MX_TIM1_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-uint32_t decodeSignal = 0b00000;
+uint32_t decodeSignal = 0x00000;
 uint32_t Signal = 0b00000;
 
 int bit = 0;
@@ -67,41 +67,60 @@ uint32_t timeOffTest;
 uint32_t timeOn[32];
 uint32_t timeOff[32];
 
-int teste;
+int flag = 0;
+int flagCode = 0;
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 		if(GPIO_Pin == SensorIR_Pin) {
-			if (timeOffTest > 800 && timeOffTest < 1000){
-				getCode();
-			} else if(HAL_GPIO_ReadPin(SensorIR_GPIO_Port, SensorIR_Pin) && bit < 1 && timeOffTest == 0) {
-				timeOffTest = microsecondsTime;
-				microsecondsTime = 0;
-			} else if (!HAL_GPIO_ReadPin(SensorIR_GPIO_Port, SensorIR_Pin) && bit < 1 &&  timeOnTest == 0) {
-				timeOnTest = microsecondsTime;
-				microsecondsTime = 0;
-			} else return;
+			getCode(microsecondsTime);
+			microsecondsTime = 0;
 		}
 }
 
-void getCode(){
-		if(HAL_GPIO_ReadPin(SensorIR_GPIO_Port, SensorIR_Pin)) {
-			timeOff[bit] = microsecondsTime;
+void getCode(uint16_t time){
+	/*if (time > 10000){
+		getCode();
+	} else if (flag == 0) {
+		time = 0;
+		flag = 1;
+	} else if (flag == 1) {
+		timeOnTest = microsecondsTime;
+		flag = 0;
+		microsecondsTime = 0;
+		bit = 0;
+	}*/
+
+	if(time > 10000)
+	{
+		flag = 1;
+		timeOnTest = time;
+	} else
+	{
+		if(flag == 1)
+		{
+			timeOn[bit] = time;
 			bit++;
-			microsecondsTime = 0;
-		} else if (!HAL_GPIO_ReadPin(SensorIR_GPIO_Port, SensorIR_Pin)) {
-			timeOn[bit] = microsecondsTime;
-			microsecondsTime = 0;
 		}
-		if(bit >= 32){
-			for(int j = 0; j < 32; j++){
-				if((timeOff[j] > 45 && timeOff[j] < 65) && (timeOn[j] > 45 && timeOn[j] < 65)) {
-					decodeSignal = decodeSignal << 1;
-				} else if ((timeOff[j] > 45 && timeOff[j] < 65) && (timeOn[j] > 160 && timeOn[j] < 180)) {
-					decodeSignal = decodeSignal << 0;
-				}
+	}
+
+
+
+	if(bit >= 32){
+		for(int j = 0; j < 32; j++){
+			if((timeOn[j] > 100 && timeOn[j] < 120)) {
+				decodeSignal = (decodeSignal << 1) + 1;
+			} else if (timeOn[j] > 210 && timeOn[j] < 230) {
+				decodeSignal = decodeSignal << 1;
 			}
-			bit = 0;
 		}
+		bit = 0;
+		flag = 0;
+		decodeSignal = decodeSignal - 2139000000;
+		if (decodeSignal > 0) {
+			Signal = decodeSignal;
+		}
+	}
+		decodeSignal = 0;
 }
 
 void sinalDecode() {
@@ -112,7 +131,7 @@ void sinalDecode() {
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef * htim) {
 	if(htim == &htim1) {
 		microsecondsTime++;
-		if(microsecondsTime >= 65535) {
+		if(microsecondsTime == 65535) {
 			microsecondsTime = 0;
 		}
 	}
@@ -152,8 +171,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start_IT(&htim1);
   /* USER CODE END 2 */
-  timeOffTest = 0;
-  timeOnTest = 0;
+
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
@@ -292,7 +310,7 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin : SensorIR_Pin */
   GPIO_InitStruct.Pin = SensorIR_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(SensorIR_GPIO_Port, &GPIO_InitStruct);
 
