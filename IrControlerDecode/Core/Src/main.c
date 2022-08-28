@@ -55,9 +55,9 @@ static void MX_TIM1_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-uint16_t decodeSignal;
+int decodeSignal;
 
-int bits = 0;
+int bit = 0;
 int leitura = 0;
 
 uint16_t microsecondsTime;
@@ -69,21 +69,50 @@ uint32_t timeOff;
 int teste;
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
-	HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, 1);
 		if(GPIO_Pin == SensorIR_Pin) {
 			if (timeOffTest > 3500 && timeOffTest < 5500){
-				sinalDecode();
+				getCode();
 			} else if(HAL_GPIO_ReadPin(SensorIR_GPIO_Port, SensorIR_Pin)) {
 				timeOffTest = microsecondsTime;
 				microsecondsTime = 0;
-				HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin, 1);
 			} else if (!HAL_GPIO_ReadPin(SensorIR_GPIO_Port, SensorIR_Pin )) {
 				timeOnTest = microsecondsTime;
 				microsecondsTime = 0;
-				HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin, 1);
 			} else return;
 		}
 }
+
+void getCode(){
+		if(HAL_GPIO_ReadPin(SensorIR_GPIO_Port, SensorIR_Pin)) {
+			timeOff = microsecondsTime;
+			microsecondsTime = 0;
+		} else if (!HAL_GPIO_ReadPin(SensorIR_GPIO_Port, SensorIR_Pin)) {
+			timeOn = microsecondsTime;
+			microsecondsTime = 0;
+		}
+		if ((timeOff > 200 && timeOff < 300) && (timeOn > 800 && timeOn < 900) && bit < 32) {
+				decodeSignal = (decodeSignal << 0);
+				bit++;
+			} else if ((timeOff > 200 && timeOff < 300) && (timeOn > 1000 && timeOn < 1100) && bit < 32) {
+				decodeSignal = (decodeSignal << 1);
+				bit++;
+			} else if (bit>= 32) {
+				bit = 0;
+			}
+}
+
+void sinalDecode() {
+	if ((timeOff == 200 && timeOff == 300) && (timeOn == 800 && timeOn == 900) && bit < 32) {
+		decodeSignal = decodeSignal << 0;
+		bit++;
+	} else if ((timeOff == 200 && timeOff == 300) && (timeOn == 1000 && timeOn == 1100) && bit < 32) {
+		decodeSignal = decodeSignal << 1;
+		bit++;
+	} else if (bit>= 32) {
+		bit = 0;
+	}
+}
+
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef * htim) {
 	if(htim == &htim1) {
@@ -93,17 +122,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef * htim) {
 	}
 }
 
-void sinalDecode(){
-		if(HAL_GPIO_ReadPin(SensorIR_GPIO_Port, SensorIR_Pin)) {
-			timeOff = microsecondsTime;
-			microsecondsTime = 0;
-			HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin, 1);
-		} else if (!HAL_GPIO_ReadPin(SensorIR_GPIO_Port, SensorIR_Pin)) {
-			timeOn = microsecondsTime;
-			microsecondsTime = 0;
-			HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin, 1);
-		}
-}
 /* USER CODE END 0 */
 
 /**
@@ -144,7 +162,10 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
+	 HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, 0);
+	 HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, 0);
+	 HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin, 0);
+	 HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin, 0);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
