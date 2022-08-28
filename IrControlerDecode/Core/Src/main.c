@@ -97,7 +97,7 @@ void getCode(uint16_t time){
 		bit = 0;
 		flag = 0;
 		decodeSignal = decodeSignal - 2139000000;
-		if (decodeSignal > 0) {
+		if (decodeSignal > 0 && decodeSignal < 2140000000) {
 			Signal = decodeSignal;
 		} else {
 			return;
