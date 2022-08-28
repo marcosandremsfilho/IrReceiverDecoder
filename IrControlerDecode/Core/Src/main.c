@@ -64,19 +64,19 @@ int leitura = 0;
 uint16_t microsecondsTime;
 uint32_t timeOnTest;
 uint32_t timeOffTest;
-uint32_t timeOn;
-uint32_t timeOff;
+uint32_t timeOn[32];
+uint32_t timeOff[32];
 
 int teste;
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 		if(GPIO_Pin == SensorIR_Pin) {
-			if (timeOffTest > 3500 && timeOffTest < 5500){
+			if (timeOffTest > 800 && timeOffTest < 1000){
 				getCode();
-			} else if(HAL_GPIO_ReadPin(SensorIR_GPIO_Port, SensorIR_Pin) && bit < 1) {
+			} else if(HAL_GPIO_ReadPin(SensorIR_GPIO_Port, SensorIR_Pin) && bit < 1 && timeOffTest == 0) {
 				timeOffTest = microsecondsTime;
 				microsecondsTime = 0;
-			} else if (!HAL_GPIO_ReadPin(SensorIR_GPIO_Port, SensorIR_Pin) && bit < 1) {
+			} else if (!HAL_GPIO_ReadPin(SensorIR_GPIO_Port, SensorIR_Pin) && bit < 1 &&  timeOnTest == 0) {
 				timeOnTest = microsecondsTime;
 				microsecondsTime = 0;
 			} else return;
@@ -85,42 +85,35 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 
 void getCode(){
 		if(HAL_GPIO_ReadPin(SensorIR_GPIO_Port, SensorIR_Pin)) {
-			timeOff = microsecondsTime;
+			timeOff[bit] = microsecondsTime;
+			bit++;
 			microsecondsTime = 0;
 		} else if (!HAL_GPIO_ReadPin(SensorIR_GPIO_Port, SensorIR_Pin)) {
-			timeOn = microsecondsTime;
+			timeOn[bit] = microsecondsTime;
 			microsecondsTime = 0;
 		}
-		if ((timeOff > 200 && timeOff < 350) && (timeOn > 750 && timeOn < 900) && bit < 32) {
-			decodeSignal = (decodeSignal << 1);
-			bit++;
-		} else if ((timeOff > 200 && timeOff < 350) && (timeOn > 950 && timeOn < 1250) && bit < 32) {
-			decodeSignal = (decodeSignal << 0);
-			bit++;
-		} else if (bit>= 32) {
+		if(bit >= 32){
+			for(int j = 0; j < 32; j++){
+				if((timeOff[j] > 45 && timeOff[j] < 65) && (timeOn[j] > 45 && timeOn[j] < 65)) {
+					decodeSignal = decodeSignal << 1;
+				} else if ((timeOff[j] > 45 && timeOff[j] < 65) && (timeOn[j] > 160 && timeOn[j] < 180)) {
+					decodeSignal = decodeSignal << 0;
+				}
+			}
 			bit = 0;
-			Signal = decodeSignal;
-			decodeSignal = 0;
 		}
 }
 
 void sinalDecode() {
-	if ((timeOff == 200 && timeOff == 300) && (timeOn == 800 && timeOn == 900) && bit < 32) {
-		decodeSignal = decodeSignal << 0;
-		bit++;
-	} else if ((timeOff == 200 && timeOff == 300) && (timeOn == 1000 && timeOn == 1100) && bit < 32) {
-		decodeSignal = decodeSignal << 1;
-		bit++;
-	} else if (bit>= 32) {
-		bit = 0;
-	}
+
 }
 
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef * htim) {
 	if(htim == &htim1) {
-		if(microsecondsTime < 65535) {
-			microsecondsTime++;
+		microsecondsTime++;
+		if(microsecondsTime >= 65535) {
+			microsecondsTime = 0;
 		}
 	}
 }
@@ -159,16 +152,14 @@ int main(void)
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start_IT(&htim1);
   /* USER CODE END 2 */
-
+  timeOffTest = 0;
+  timeOnTest = 0;
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
     /* USER CODE END WHILE */
-	 HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, 0);
-	 HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, 0);
-	 HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin, 0);
-	 HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin, 0);
+
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -241,7 +232,7 @@ static void MX_TIM1_Init(void)
   htim1.Instance = TIM1;
   htim1.Init.Prescaler = 0;
   htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim1.Init.Period = 168;
+  htim1.Init.Period = 1679;
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim1.Init.RepetitionCounter = 0;
   htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
