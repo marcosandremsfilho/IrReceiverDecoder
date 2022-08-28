@@ -55,8 +55,8 @@ static void MX_TIM1_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-uint32_t decodeSignal = 0x0;
-uint32_t Signal = 0x0;
+uint32_t decodeSignal = 0b00000;
+uint32_t Signal = 0b00000;
 
 int bit = 0;
 int leitura = 0;
@@ -92,16 +92,16 @@ void getCode(){
 			microsecondsTime = 0;
 		}
 		if ((timeOff > 200 && timeOff < 350) && (timeOn > 750 && timeOn < 900) && bit < 32) {
-				decodeSignal = (decodeSignal << 1);
-				bit++;
-			} else if ((timeOff > 200 && timeOff < 350) && (timeOn > 950 && timeOn < 1250) && bit < 32) {
-				decodeSignal = (decodeSignal << 0);
-				bit++;
-			} else if (bit>= 32) {
-				bit = 0;
-				Signal = decodeSignal;
-				decodeSignal = 0;
-			}
+			decodeSignal = (decodeSignal << 1);
+			bit++;
+		} else if ((timeOff > 200 && timeOff < 350) && (timeOn > 950 && timeOn < 1250) && bit < 32) {
+			decodeSignal = (decodeSignal << 0);
+			bit++;
+		} else if (bit>= 32) {
+			bit = 0;
+			Signal = decodeSignal;
+			decodeSignal = 0;
+		}
 }
 
 void sinalDecode() {
