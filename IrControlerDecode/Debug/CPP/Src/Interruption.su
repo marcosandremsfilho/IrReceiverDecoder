@@ -1,0 +1,4 @@
+D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Inc/sensorIrClass.h:13:2:SensorIR::SensorIR()	16	static
+../CPP/Src/Interruption.cpp:6:6:void Interruption()	8	static
+../CPP/Src/Interruption.cpp:8:1:void __static_initialization_and_destruction_0(int, int)	16	static
+../CPP/Src/Interruption.cpp:8:1:cpp)	8	static

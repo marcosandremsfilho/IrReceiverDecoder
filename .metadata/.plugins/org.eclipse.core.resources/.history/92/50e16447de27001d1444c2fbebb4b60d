@@ -1,0 +1,8 @@
+#include "main.h"
+#include "sensorIrClass.h"
+
+void SensorIR::getTime() {
+	getCode(microsecondsTime);
+	microsecondsTime = 0;
+}
+

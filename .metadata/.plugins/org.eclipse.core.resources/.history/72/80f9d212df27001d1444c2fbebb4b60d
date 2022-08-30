@@ -1,0 +1,15 @@
+#include "main.h"
+#include "sensorIrClass.h"
+
+void SensorIR::getTime() {
+	time = microsecondstime;
+	microsecondstime = 0;
+	if(time > 10000){
+		decodeSignalFunction();
+	}
+}
+
+void SensorIR::decodeSignalFunction() {
+
+}
+

@@ -1,0 +1,10 @@
+#include "main.h"
+#include "sensorIrClass.h"
+
+SensorIR sensor;
+
+void Interruption(uint16_t time) {
+	sensor.getTime(time);
+}
+
+

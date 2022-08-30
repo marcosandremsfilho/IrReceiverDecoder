@@ -55,55 +55,12 @@ static void MX_TIM1_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-uint32_t decodeSignal = 0x00000;
-uint32_t Signal = 0b00000;
-
-int bit = 0;
-int leitura = 0;
-
 uint16_t microsecondsTime;
-uint32_t timeParity;
-
-uint32_t timeSignal[32];
-
-int flag = 0;
-int flagCode = 0;
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 		if(GPIO_Pin == SensorIR_Pin) {
-			getCode(microsecondsTime);
-			microsecondsTime = 0;
+			Interruption();
 		}
-}
-
-void getCode(uint16_t time){
-	if(time > 10000){
-		flag = 1;
-		timeParity = time;
-	} else{
-		if(flag == 1){
-			timeSignal[bit] = time;
-			bit++;
-		}
-	}
-	if(bit >= 32){
-		for(int j = 0; j < 32; j++){
-			if((timeSignal[j] > 100 && timeSignal[j] < 120)) {
-				decodeSignal = (decodeSignal << 1) + 1;
-			} else if (timeSignal[j] > 210 && timeSignal[j] < 230) {
-				decodeSignal = decodeSignal << 1;
-			}
-		}
-		bit = 0;
-		flag = 0;
-		decodeSignal = decodeSignal - 2139000000;
-		if (decodeSignal > 0 && decodeSignal < 2140000000) {
-			Signal = decodeSignal;
-		} else {
-			return;
-		}
-	}
-		decodeSignal = 0;
 }
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef * htim) {
@@ -157,6 +114,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	 mainCpp();
   }
   /* USER CODE END 3 */
 }

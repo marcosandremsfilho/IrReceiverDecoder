@@ -1,0 +1,2 @@
+../CPP/Src/sensorIrClass.cpp:6:6:void SensorIR::getTime()	16	static
+../CPP/Src/sensorIrClass.cpp:15:6:void SensorIR::decodeSignalFunction()	24	static

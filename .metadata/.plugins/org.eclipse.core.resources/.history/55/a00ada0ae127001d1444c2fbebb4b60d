@@ -1,0 +1,22 @@
+#include "main.h"
+
+extern uint16_t microsecondstime;
+
+#ifndef SENSORIRCLASS
+#define SENSORIRCLASS
+
+class SensorIR {
+protected:
+	uint16_t time;
+	uint32_t decodeSignal, Signal, timeparity, timeSignal[32];
+	int flag, flagCode, bit;
+
+public:
+	void getTime(uint16_t);
+	void decodeSignalFunction();
+};
+
+
+
+
+#endif /* INC_SENSORIRCLASS_H_ */

@@ -1,0 +1,15 @@
+#include "main.h"
+#include "sensorIrClass.h"
+
+void SensorIR::getTime() {
+	if(time > 10000){
+			flag = 1;
+			timeParity = time;
+		} else{
+			if(flag == 1){
+				timeSignal[bit] = time;
+				bit++;
+			}
+		}
+}
+
