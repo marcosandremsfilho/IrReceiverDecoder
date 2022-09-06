@@ -26,6 +26,7 @@ CPP/Src/sensorIrClass.o: ../CPP/Src/sensorIrClass.cpp ../Core/Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
+ ../Core/Inc/micros.h ../Core/Inc/main.h \
  D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Inc/sensorIrClass.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
@@ -55,4 +56,6 @@ CPP/Src/sensorIrClass.o: ../CPP/Src/sensorIrClass.cpp ../Core/Inc/main.h \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
+../Core/Inc/micros.h:
+../Core/Inc/main.h:
 D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Inc/sensorIrClass.h:

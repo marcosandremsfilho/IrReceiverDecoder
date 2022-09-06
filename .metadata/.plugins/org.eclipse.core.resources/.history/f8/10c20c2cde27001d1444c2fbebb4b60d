@@ -1,7 +1,0 @@
-#include "main.h"
-#include "sensorIrClass.h"
-
-void SensorIR::getTime() {
-
-}
-

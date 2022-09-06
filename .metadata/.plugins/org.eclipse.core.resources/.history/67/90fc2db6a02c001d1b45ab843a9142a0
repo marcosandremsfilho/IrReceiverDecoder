@@ -1,0 +1,31 @@
+#include "main.h"
+#include "sensorIrClass.h"
+
+extern uint16_t microsecondsTime;
+
+SensorIR :: SensorIR(GPIO_TypeDef* Port, uint16_t Pin) {
+	_Port = Port;
+	_Pin = Pin;
+}
+
+void SensorIR::getTime(uint16_t microTime) {
+	decision();
+
+	if(lockInicial == 0) {
+		timeON = HAL_GetTick();
+		lockInicial = 1;
+	} else if(lockFinal == 0 && lockInicial == 1) {
+		lockFinal =1;
+		timeOFF = HAL_GetTick();
+		time = timeOFF - timeON;
+	}
+}
+
+void SensorIR::decision() {
+	if(time > 12 && time < 14) {
+		decodeNECSignalFunction();
+	}
+}
+void SensorIR::decodeNECSignalFunction() {
+	HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_RESET);
+}

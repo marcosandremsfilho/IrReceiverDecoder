@@ -21,7 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "micros.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -56,20 +56,12 @@ static void MX_TIM1_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 uint16_t microsecondsTime;
+int inicial;
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
-		if(GPIO_Pin == SensorIR_Pin) {
-			Interruption();
+	if(GPIO_Pin == SensorIR_Pin) {
+			Interruption(microsecondsTime);
 		}
-}
-
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef * htim) {
-	if(htim == &htim1) {
-		microsecondsTime++;
-		if(microsecondsTime == 65535) {
-			microsecondsTime = 0;
-		}
-	}
 }
 
 /* USER CODE END 0 */
@@ -104,7 +96,7 @@ int main(void)
   MX_GPIO_Init();
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
-  HAL_TIM_Base_Start_IT(&htim1);
+  DWT_Init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -115,6 +107,7 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 	 mainCpp();
+
   }
   /* USER CODE END 3 */
 }
@@ -186,7 +179,7 @@ static void MX_TIM1_Init(void)
   htim1.Instance = TIM1;
   htim1.Init.Prescaler = 0;
   htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim1.Init.Period = 1679;
+  htim1.Init.Period = 159;
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim1.Init.RepetitionCounter = 0;
   htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
@@ -199,7 +192,7 @@ static void MX_TIM1_Init(void)
   {
     Error_Handler();
   }
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_UPDATE;
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_ENABLE;
   if (HAL_TIMEx_MasterConfigSynchronization(&htim1, &sMasterConfig) != HAL_OK)
   {
@@ -246,7 +239,7 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin : SensorIR_Pin */
   GPIO_InitStruct.Pin = SensorIR_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(SensorIR_GPIO_Port, &GPIO_InitStruct);
 

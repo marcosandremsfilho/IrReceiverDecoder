@@ -31,7 +31,7 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "micros.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -56,7 +56,7 @@ void Error_Handler(void);
 void sinalDecode();
 void getCode(uint16_t);
 void mainCpp();
-void Interruption();
+void Interruption(uint16_t);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
