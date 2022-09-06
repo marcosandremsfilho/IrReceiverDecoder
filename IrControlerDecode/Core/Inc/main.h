@@ -56,7 +56,7 @@ void Error_Handler(void);
 void sinalDecode();
 void getCode(uint16_t);
 void mainCpp();
-void Interruption(uint16_t);
+void Interruption();
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/

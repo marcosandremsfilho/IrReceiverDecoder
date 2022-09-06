@@ -12,10 +12,12 @@ protected:
 	uint32_t decodeSignal, Signal, timeSignalNEC[32], timeSignalSONY[16];
 	int flag, bit;
 	int position = 0, protocol, decodePosition = 0;
-	enum {NEC, Sony};
+	enum {NEC, SIRC};
 public:
 	SensorIR(GPIO_TypeDef*, uint16_t);
-	void getTime(uint16_t);
+	void getTime();
+	void counting();
+	void Reset();
 	void decision();
 	void decodeNECSignalFunction();
 	void decodeSIRCSignalFunction();
