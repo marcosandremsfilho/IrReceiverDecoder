@@ -50,6 +50,10 @@ void SensorIR::decodeNECSignalFunction() {
 			}
 		}
 	Signal = decodeSignal;
+	if (bit == 16) {
+		lockInicial = 0;
+		lockFinal = 0;
+	}
 }
 
 void SensorIR::decodeSIRCSignalFunction() {

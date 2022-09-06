@@ -19,6 +19,7 @@ void SensorIR::getTime(uint16_t microTime) {
 		timeOFF = micros();
 
 		time = timeOFF - timeON;
+		time2 = timeOFF2 - timeON2;
 		flag = 0;
 		bit = 0;
 	}
@@ -39,11 +40,11 @@ void SensorIR::decodeNECSignalFunction() {
 		} else if (flag == 1){
 			timeOFF2 = micros();
 			time2 =  timeOFF2 - timeON2;
-			if (time2 > 1000 && time2 < 2000 && bit < 16){
+			if (time2 > 1000 && time2 < 2000 && bit < 32){
 				decodeSignal = (decodeSignal << 1);
 				bit++;
 				flag = 0;
-			} else if (time2 > 2000 && time2 < 3000 && bit < 16) {
+			} else if (time2 > 2000 && time2 < 3000 && bit < 32) {
 				decodeSignal = (decodeSignal << 1) + 1;
 				bit++;
 				flag = 0;
@@ -53,24 +54,21 @@ void SensorIR::decodeNECSignalFunction() {
 }
 
 void SensorIR::decodeSIRCSignalFunction() {
-	HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
-
-		if(flag == 0) {
+	if(flag == 0) {
 				timeON2 = micros();
 				flag = 1;
 			} else if (flag == 1){
 				timeOFF2 = micros();
 				time2 =  timeOFF2 - timeON2;
-				if (time2 > 1100 && time2 < 1300 && bit < 8){
+				if (time2 > 1100 && time2 < 1200 && bit < 32){
 					decodeSignal = (decodeSignal << 1);
 					bit++;
 					flag = 0;
-				} else if (time2 > 1700 && time2 < 1900 && bit < 8) {
+				} else if (time2 > 2000 && time2 < 3000 && bit < 32) {
 					decodeSignal = (decodeSignal << 1) + 1;
 					bit++;
 					flag = 0;
 				}
 			}
 		Signal = decodeSignal;
-
 }

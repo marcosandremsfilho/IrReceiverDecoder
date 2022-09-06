@@ -43,10 +43,19 @@ void SensorIR::decodeNECSignalFunction() {
 				decodeSignal = (decodeSignal << 1);
 				bit++;
 				flag = 0;
+				if (bit == 16) {
+					lockInicial = 0;
+					lockFinal = 0;
+					decodeSignal = 0;
+				}
 			} else if (time2 > 2000 && time2 < 3000 && bit < 16) {
 				decodeSignal = (decodeSignal << 1) + 1;
 				bit++;
 				flag = 0;
+				if (bit == 16) {
+					lockInicial = 0;
+					lockFinal = 0;
+				}
 			}
 		}
 	Signal = decodeSignal;

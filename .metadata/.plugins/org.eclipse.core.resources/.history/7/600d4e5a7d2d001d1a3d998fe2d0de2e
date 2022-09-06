@@ -39,11 +39,11 @@ void SensorIR::decodeNECSignalFunction() {
 		} else if (flag == 1){
 			timeOFF2 = micros();
 			time2 =  timeOFF2 - timeON2;
-			if (time2 > 1000 && time2 < 2000 && bit < 16){
+			if (time2 > 1000 && time2 < 2000 && bit < 32){
 				decodeSignal = (decodeSignal << 1);
 				bit++;
 				flag = 0;
-			} else if (time2 > 2000 && time2 < 3000 && bit < 16) {
+			} else if (time2 > 2000 && time2 < 3000 && bit < 32) {
 				decodeSignal = (decodeSignal << 1) + 1;
 				bit++;
 				flag = 0;
@@ -61,11 +61,11 @@ void SensorIR::decodeSIRCSignalFunction() {
 			} else if (flag == 1){
 				timeOFF2 = micros();
 				time2 =  timeOFF2 - timeON2;
-				if (time2 > 1100 && time2 < 1300 && bit < 8){
+				if (time2 > 1100 && time2 < 1300 && bit < 16){
 					decodeSignal = (decodeSignal << 1);
 					bit++;
 					flag = 0;
-				} else if (time2 > 1700 && time2 < 1900 && bit < 8) {
+				} else if (time2 > 1700 && time2 < 1900 && bit < 32) {
 					decodeSignal = (decodeSignal << 1) + 1;
 					bit++;
 					flag = 0;
