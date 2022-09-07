@@ -1,0 +1,92 @@
+#include "main.h"
+#include "sensorIrClass.h"
+
+int testeTime, testeDecision, testeCounting, testeReset;
+SensorIR :: SensorIR(GPIO_TypeDef* Port, uint16_t Pin) {
+	_Port = Port;
+	_Pin = Pin;
+}
+
+void SensorIR::getTime() {
+	if (lockInicial == 0) {
+
+	switch (flag) {
+		case 0: timeON = 0;
+				timeON = micros();
+				flag = 1;
+				break;
+		case 1: time = 0;
+				timeOFF = micros();
+				time =  timeOFF - timeON;
+				flag = 0;
+				lockInicial = 1;
+				break;
+		}
+	}
+	decision();
+}
+
+void SensorIR::decision() {
+	if(time > 12000 && time < 15000) {
+		decodeNECSignalFunction();
+	} else if (time > 2000 && time < 4000) {
+		decodeSIRCSignalFunction();
+	}
+
+	testeDecision++;
+}
+
+void SensorIR::counting() {
+	switch (flag) {
+	case 0: timeON2 = micros();
+			flag = 1;
+			break;
+	case 1: timeOFF2 = micros();
+			time2 =  timeOFF2 - timeON2;
+			flag = 0;
+			break;
+	}
+
+	testeCounting++;
+}
+
+void SensorIR::Reset() {
+	if (bit == 32 && protocol == NEC) {
+		lockInicial = 0;
+		bit = 0;
+	} else if (bit == 16 && protocol == SIRC) {
+		lockInicial = 0;
+	}
+}
+
+void SensorIR::decodeNECSignalFunction() {
+	protocol = NEC;
+
+	counting();
+
+	if (time2 > 1000 && time2 < 2000 && bit < 33){
+		decodeSignal = (decodeSignal << 1);
+		bit++;
+	} else if (time2 > 2000 && time2 < 3000 && bit < 33) {
+		decodeSignal = (decodeSignal << 1) + 1;
+		bit++;
+	}
+
+	Signal = decodeSignal;
+}
+
+void SensorIR::decodeSIRCSignalFunction() {
+	protocol = SIRC;
+
+	counting();
+
+	if (time2 > 1100 && time2 < 1300 && bit < 16){
+	decodeSignal = (decodeSignal << 1);
+		bit++;
+	} else if (time2 > 1700 && time2 < 1900 && bit < 16) {
+		decodeSignal = (decodeSignal << 1) + 1;
+		bit++;
+	}
+
+	Signal = decodeSignal;
+}

@@ -8,10 +8,10 @@ protected:
 	GPIO_TypeDef* _Port;
 	uint16_t _Pin;
 
-	uint16_t timeON, timeOFF, timeON2, timeOFF2, time, time2, lockInicial = 0, lockFinal = 0, timeLock;
-	uint32_t decodeSignal, Signal, timeSignalNEC[32], timeSignalSONY[16];
+	uint16_t timeON, timeOFF, timeON2, timeOFF2, time, time2, timeReset, lock, count;
+	uint32_t decodeSignal, Signal;
 	int flag, bit;
-	int position = 0, protocol, decodePosition = 0;
+	int protocol, debugCounting;
 	enum {NEC, SIRC};
 public:
 	SensorIR(GPIO_TypeDef*, uint16_t);
