@@ -8,9 +8,9 @@ protected:
 	GPIO_TypeDef* _Port;
 	uint16_t _Pin;
 
-	uint16_t timeON, timeOFF, timeON2, timeOFF2, time, time2, timeReset, lock, count;
+	uint16_t timeON, timeOFF, timeON2, timeOFF2, time, time2, lock, count, flagCounting;
 	uint32_t decodeSignal, Signal;
-	int flag, bit;
+	int flag, bit, timeReset;
 	int protocol, debugCounting;
 	enum {NEC, SIRC};
 public:

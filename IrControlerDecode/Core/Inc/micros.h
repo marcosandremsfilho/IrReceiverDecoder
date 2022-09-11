@@ -53,4 +53,8 @@ __STATIC_INLINE uint32_t micros(void){
 	return  DWT->CYCCNT / (SystemCoreClock / 1000000U);
 }
 
+__STATIC_INLINE void resetMicros(void){
+	DWT->CYCCNT = 0U;
+}
+
 #endif /* INC_MICROS_H_ */

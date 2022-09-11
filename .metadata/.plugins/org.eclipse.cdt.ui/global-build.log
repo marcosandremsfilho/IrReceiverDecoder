@@ -1,4 +1,22 @@
-23:00:06 **** Incremental Build of configuration Debug for project IrControlerDecode ****
+18:55:56 **** Incremental Build of configuration Debug for project IrControlerDecode ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-g++ "../CPP/Src/Interruption.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Src" -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Inc" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"CPP/Src/Interruption.d" -MT"CPP/Src/Interruption.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "CPP/Src/Interruption.o"
+arm-none-eabi-g++ "../CPP/Src/mainCpp.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Src" -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Inc" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"CPP/Src/mainCpp.d" -MT"CPP/Src/mainCpp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "CPP/Src/mainCpp.o"
+arm-none-eabi-g++ "../CPP/Src/sensorIrClass.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Src" -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Inc" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"CPP/Src/sensorIrClass.d" -MT"CPP/Src/sensorIrClass.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "CPP/Src/sensorIrClass.o"
+../CPP/Src/sensorIrClass.cpp: In member function 'void SensorIR::getTime()':
+../CPP/Src/sensorIrClass.cpp:26:6: error: expected primary-expression before ')' token
+   26 |   if()
+      |      ^
+../CPP/Src/sensorIrClass.cpp:27:2: error: expected primary-expression before '}' token
+   27 |  }
+      |  ^
+make: *** [CPP/Src/subdir.mk:25: CPP/Src/sensorIrClass.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+18:56:26 **** Incremental Build of configuration Debug for project IrControlerDecode ****
 make -j8 all 
 arm-none-eabi-g++ "../CPP/Src/sensorIrClass.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Src" -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Inc" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"CPP/Src/sensorIrClass.d" -MT"CPP/Src/sensorIrClass.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "CPP/Src/sensorIrClass.o"
 arm-none-eabi-g++ -o "IrControlerDecode.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\GitHub\IrReceiverDecoder\IrControlerDecode\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="IrControlerDecode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
@@ -8,7 +26,471 @@ arm-none-eabi-size   IrControlerDecode.elf
 arm-none-eabi-objdump -h -S  IrControlerDecode.elf  > "IrControlerDecode.list"
 arm-none-eabi-objcopy  -O binary  IrControlerDecode.elf  "IrControlerDecode.bin"
    text	   data	    bss	    dec	    hex	filename
-   9416	     24	   1692	  11132	   2b7c	IrControlerDecode.elf
+   9420	     24	   1692	  11136	   2b80	IrControlerDecode.elf
+Finished building: default.size.stdout
+ 
+Finished building: IrControlerDecode.bin
+ 
+Finished building: IrControlerDecode.list
+ 
+18:57:17 **** Incremental Build of configuration Debug for project IrControlerDecode ****
+make -j8 all 
+arm-none-eabi-g++ "../CPP/Src/sensorIrClass.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Src" -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Inc" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"CPP/Src/sensorIrClass.d" -MT"CPP/Src/sensorIrClass.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "CPP/Src/sensorIrClass.o"
+arm-none-eabi-g++ -o "IrControlerDecode.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\GitHub\IrReceiverDecoder\IrControlerDecode\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="IrControlerDecode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: IrControlerDecode.elf
+ 
+arm-none-eabi-size   IrControlerDecode.elf 
+arm-none-eabi-objdump -h -S  IrControlerDecode.elf  > "IrControlerDecode.list"
+arm-none-eabi-objcopy  -O binary  IrControlerDecode.elf  "IrControlerDecode.bin"
+   text	   data	    bss	    dec	    hex	filename
+   9424	     24	   1692	  11140	   2b84	IrControlerDecode.elf
+Finished building: default.size.stdout
+ 
+Finished building: IrControlerDecode.bin
+ 
+Finished building: IrControlerDecode.list
+ 
+18:58:29 **** Incremental Build of configuration Debug for project IrControlerDecode ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-g++ "../CPP/Src/Interruption.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Src" -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Inc" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"CPP/Src/Interruption.d" -MT"CPP/Src/Interruption.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "CPP/Src/Interruption.o"
+arm-none-eabi-g++ "../CPP/Src/mainCpp.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Src" -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Inc" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"CPP/Src/mainCpp.d" -MT"CPP/Src/mainCpp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "CPP/Src/mainCpp.o"
+arm-none-eabi-g++ "../CPP/Src/sensorIrClass.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Src" -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Inc" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"CPP/Src/sensorIrClass.d" -MT"CPP/Src/sensorIrClass.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "CPP/Src/sensorIrClass.o"
+arm-none-eabi-g++ -o "IrControlerDecode.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\GitHub\IrReceiverDecoder\IrControlerDecode\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="IrControlerDecode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: IrControlerDecode.elf
+ 
+arm-none-eabi-size   IrControlerDecode.elf 
+arm-none-eabi-objdump -h -S  IrControlerDecode.elf  > "IrControlerDecode.list"
+arm-none-eabi-objcopy  -O binary  IrControlerDecode.elf  "IrControlerDecode.bin"
+   text	   data	    bss	    dec	    hex	filename
+   9424	     24	   1692	  11140	   2b84	IrControlerDecode.elf
+Finished building: default.size.stdout
+ 
+Finished building: IrControlerDecode.bin
+ 
+Finished building: IrControlerDecode.list
+ 
+19:00:16 **** Incremental Build of configuration Debug for project IrControlerDecode ****
+make -j8 all 
+arm-none-eabi-g++ "../CPP/Src/sensorIrClass.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Src" -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Inc" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"CPP/Src/sensorIrClass.d" -MT"CPP/Src/sensorIrClass.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "CPP/Src/sensorIrClass.o"
+../CPP/Src/sensorIrClass.cpp: In member function 'void SensorIR::decision()':
+../CPP/Src/sensorIrClass.cpp:32:18: warning: suggest parentheses around '&&' within '||' [-Wparentheses]
+   32 |  if(time > 12000 && time < 15000 || lock == 1) {
+      |     ~~~~~~~~~~~~~^~~~~~~~~~~~~~~
+../CPP/Src/sensorIrClass.cpp:35:25: warning: suggest parentheses around '&&' within '||' [-Wparentheses]
+   35 |  } else if (time > 2000 && time < 4000 || lock == 1) {
+      |             ~~~~~~~~~~~~^~~~~~~~~~~~~~
+arm-none-eabi-g++ -o "IrControlerDecode.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\GitHub\IrReceiverDecoder\IrControlerDecode\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="IrControlerDecode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: IrControlerDecode.elf
+ 
+arm-none-eabi-size   IrControlerDecode.elf 
+arm-none-eabi-objdump -h -S  IrControlerDecode.elf  > "IrControlerDecode.list"
+arm-none-eabi-objcopy  -O binary  IrControlerDecode.elf  "IrControlerDecode.bin"
+   text	   data	    bss	    dec	    hex	filename
+   9472	     24	   1692	  11188	   2bb4	IrControlerDecode.elf
+Finished building: default.size.stdout
+ 
+Finished building: IrControlerDecode.bin
+ 
+Finished building: IrControlerDecode.list
+ 
+19:04:38 **** Incremental Build of configuration Debug for project IrControlerDecode ****
+make -j8 all 
+arm-none-eabi-g++ "../CPP/Src/Interruption.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Src" -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Inc" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"CPP/Src/Interruption.d" -MT"CPP/Src/Interruption.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "CPP/Src/Interruption.o"
+arm-none-eabi-g++ "../CPP/Src/mainCpp.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Src" -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Inc" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"CPP/Src/mainCpp.d" -MT"CPP/Src/mainCpp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "CPP/Src/mainCpp.o"
+arm-none-eabi-g++ "../CPP/Src/sensorIrClass.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Src" -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Inc" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"CPP/Src/sensorIrClass.d" -MT"CPP/Src/sensorIrClass.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "CPP/Src/sensorIrClass.o"
+../CPP/Src/sensorIrClass.cpp: In member function 'void SensorIR::decision()':
+../CPP/Src/sensorIrClass.cpp:32:18: warning: suggest parentheses around '&&' within '||' [-Wparentheses]
+   32 |  if(time > 12000 && time < 15000 || lock == 1) {
+      |     ~~~~~~~~~~~~~^~~~~~~~~~~~~~~
+../CPP/Src/sensorIrClass.cpp:35:25: warning: suggest parentheses around '&&' within '||' [-Wparentheses]
+   35 |  } else if (time > 2000 && time < 4000 || lock == 1) {
+      |             ~~~~~~~~~~~~^~~~~~~~~~~~~~
+arm-none-eabi-g++ -o "IrControlerDecode.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\GitHub\IrReceiverDecoder\IrControlerDecode\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="IrControlerDecode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: IrControlerDecode.elf
+ 
+arm-none-eabi-size   IrControlerDecode.elf 
+arm-none-eabi-objdump -h -S  IrControlerDecode.elf  > "IrControlerDecode.list"
+arm-none-eabi-objcopy  -O binary  IrControlerDecode.elf  "IrControlerDecode.bin"
+   text	   data	    bss	    dec	    hex	filename
+   9472	     24	   1692	  11188	   2bb4	IrControlerDecode.elf
+Finished building: default.size.stdout
+ 
+Finished building: IrControlerDecode.bin
+ 
+Finished building: IrControlerDecode.list
+ 
+19:05:52 **** Incremental Build of configuration Debug for project IrControlerDecode ****
+make -j8 all 
+arm-none-eabi-g++ "../CPP/Src/sensorIrClass.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Src" -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Inc" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"CPP/Src/sensorIrClass.d" -MT"CPP/Src/sensorIrClass.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "CPP/Src/sensorIrClass.o"
+arm-none-eabi-g++ -o "IrControlerDecode.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\GitHub\IrReceiverDecoder\IrControlerDecode\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="IrControlerDecode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: IrControlerDecode.elf
+ 
+arm-none-eabi-size   IrControlerDecode.elf 
+arm-none-eabi-objdump -h -S  IrControlerDecode.elf  > "IrControlerDecode.list"
+arm-none-eabi-objcopy  -O binary  IrControlerDecode.elf  "IrControlerDecode.bin"
+   text	   data	    bss	    dec	    hex	filename
+   9432	     24	   1692	  11148	   2b8c	IrControlerDecode.elf
+Finished building: default.size.stdout
+ 
+Finished building: IrControlerDecode.bin
+ 
+Finished building: IrControlerDecode.list
+ 
+19:06:56 **** Incremental Build of configuration Debug for project IrControlerDecode ****
+make -j8 all 
+arm-none-eabi-size   IrControlerDecode.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9432	     24	   1692	  11148	   2b8c	IrControlerDecode.elf
+Finished building: default.size.stdout
+ 
+19:21:35 **** Incremental Build of configuration Debug for project IrControlerDecode ****
+make -j8 all 
+arm-none-eabi-size   IrControlerDecode.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9432	     24	   1692	  11148	   2b8c	IrControlerDecode.elf
+Finished building: default.size.stdout
+ 
+19:25:01 **** Incremental Build of configuration Debug for project IrControlerDecode ****
+make -j8 all 
+arm-none-eabi-size   IrControlerDecode.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9432	     24	   1692	  11148	   2b8c	IrControlerDecode.elf
+Finished building: default.size.stdout
+ 
+19:25:56 **** Incremental Build of configuration Debug for project IrControlerDecode ****
+make -j8 all 
+arm-none-eabi-g++ "../CPP/Src/sensorIrClass.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Src" -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Inc" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"CPP/Src/sensorIrClass.d" -MT"CPP/Src/sensorIrClass.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "CPP/Src/sensorIrClass.o"
+arm-none-eabi-g++ -o "IrControlerDecode.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\GitHub\IrReceiverDecoder\IrControlerDecode\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="IrControlerDecode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: IrControlerDecode.elf
+ 
+arm-none-eabi-size   IrControlerDecode.elf 
+arm-none-eabi-objdump -h -S  IrControlerDecode.elf  > "IrControlerDecode.list"
+arm-none-eabi-objcopy  -O binary  IrControlerDecode.elf  "IrControlerDecode.bin"
+   text	   data	    bss	    dec	    hex	filename
+   9432	     24	   1692	  11148	   2b8c	IrControlerDecode.elf
+Finished building: default.size.stdout
+ 
+Finished building: IrControlerDecode.bin
+ 
+Finished building: IrControlerDecode.list
+ 
+19:26:18 **** Incremental Build of configuration Debug for project IrControlerDecode ****
+make -j8 all 
+arm-none-eabi-size   IrControlerDecode.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9432	     24	   1692	  11148	   2b8c	IrControlerDecode.elf
+Finished building: default.size.stdout
+ 
+19:29:08 **** Incremental Build of configuration Debug for project IrControlerDecode ****
+make -j8 all 
+arm-none-eabi-g++ "../CPP/Src/sensorIrClass.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Src" -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Inc" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"CPP/Src/sensorIrClass.d" -MT"CPP/Src/sensorIrClass.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "CPP/Src/sensorIrClass.o"
+arm-none-eabi-g++ -o "IrControlerDecode.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\GitHub\IrReceiverDecoder\IrControlerDecode\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="IrControlerDecode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: IrControlerDecode.elf
+ 
+arm-none-eabi-size   IrControlerDecode.elf 
+arm-none-eabi-objdump -h -S  IrControlerDecode.elf  > "IrControlerDecode.list"
+arm-none-eabi-objcopy  -O binary  IrControlerDecode.elf  "IrControlerDecode.bin"
+   text	   data	    bss	    dec	    hex	filename
+   9384	     24	   1692	  11100	   2b5c	IrControlerDecode.elf
+Finished building: default.size.stdout
+ 
+Finished building: IrControlerDecode.bin
+ 
+Finished building: IrControlerDecode.list
+ 
+19:29:48 **** Incremental Build of configuration Debug for project IrControlerDecode ****
+make -j8 all 
+arm-none-eabi-g++ "../CPP/Src/sensorIrClass.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Src" -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Inc" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"CPP/Src/sensorIrClass.d" -MT"CPP/Src/sensorIrClass.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "CPP/Src/sensorIrClass.o"
+arm-none-eabi-g++ -o "IrControlerDecode.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\GitHub\IrReceiverDecoder\IrControlerDecode\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="IrControlerDecode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: IrControlerDecode.elf
+ 
+arm-none-eabi-size   IrControlerDecode.elf 
+arm-none-eabi-objdump -h -S  IrControlerDecode.elf  > "IrControlerDecode.list"
+arm-none-eabi-objcopy  -O binary  IrControlerDecode.elf  "IrControlerDecode.bin"
+   text	   data	    bss	    dec	    hex	filename
+   9384	     24	   1692	  11100	   2b5c	IrControlerDecode.elf
+Finished building: default.size.stdout
+ 
+Finished building: IrControlerDecode.bin
+ 
+Finished building: IrControlerDecode.list
+ 
+19:30:01 **** Incremental Build of configuration Debug for project IrControlerDecode ****
+make -j8 all 
+arm-none-eabi-size   IrControlerDecode.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9384	     24	   1692	  11100	   2b5c	IrControlerDecode.elf
+Finished building: default.size.stdout
+ 
+19:30:40 **** Incremental Build of configuration Debug for project IrControlerDecode ****
+make -j8 all 
+arm-none-eabi-size   IrControlerDecode.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9384	     24	   1692	  11100	   2b5c	IrControlerDecode.elf
+Finished building: default.size.stdout
+ 
+19:32:24 **** Incremental Build of configuration Debug for project IrControlerDecode ****
+make -j8 all 
+arm-none-eabi-g++ "../CPP/Src/sensorIrClass.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Src" -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Inc" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"CPP/Src/sensorIrClass.d" -MT"CPP/Src/sensorIrClass.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "CPP/Src/sensorIrClass.o"
+arm-none-eabi-g++ -o "IrControlerDecode.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\GitHub\IrReceiverDecoder\IrControlerDecode\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="IrControlerDecode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: IrControlerDecode.elf
+ 
+arm-none-eabi-size   IrControlerDecode.elf 
+arm-none-eabi-objdump -h -S  IrControlerDecode.elf  > "IrControlerDecode.list"
+arm-none-eabi-objcopy  -O binary  IrControlerDecode.elf  "IrControlerDecode.bin"
+   text	   data	    bss	    dec	    hex	filename
+   9396	     24	   1692	  11112	   2b68	IrControlerDecode.elf
+Finished building: default.size.stdout
+ 
+Finished building: IrControlerDecode.bin
+ 
+Finished building: IrControlerDecode.list
+ 
+19:33:25 **** Incremental Build of configuration Debug for project IrControlerDecode ****
+make -j8 all 
+arm-none-eabi-g++ "../CPP/Src/sensorIrClass.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Src" -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Inc" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"CPP/Src/sensorIrClass.d" -MT"CPP/Src/sensorIrClass.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "CPP/Src/sensorIrClass.o"
+arm-none-eabi-g++ -o "IrControlerDecode.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\GitHub\IrReceiverDecoder\IrControlerDecode\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="IrControlerDecode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: IrControlerDecode.elf
+ 
+arm-none-eabi-size   IrControlerDecode.elf 
+arm-none-eabi-objdump -h -S  IrControlerDecode.elf  > "IrControlerDecode.list"
+arm-none-eabi-objcopy  -O binary  IrControlerDecode.elf  "IrControlerDecode.bin"
+   text	   data	    bss	    dec	    hex	filename
+   9392	     24	   1692	  11108	   2b64	IrControlerDecode.elf
+Finished building: default.size.stdout
+ 
+Finished building: IrControlerDecode.bin
+ 
+Finished building: IrControlerDecode.list
+ 
+19:34:27 **** Incremental Build of configuration Debug for project IrControlerDecode ****
+make -j8 all 
+arm-none-eabi-g++ "../CPP/Src/sensorIrClass.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Src" -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Inc" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"CPP/Src/sensorIrClass.d" -MT"CPP/Src/sensorIrClass.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "CPP/Src/sensorIrClass.o"
+arm-none-eabi-g++ -o "IrControlerDecode.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\GitHub\IrReceiverDecoder\IrControlerDecode\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="IrControlerDecode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: IrControlerDecode.elf
+ 
+arm-none-eabi-size   IrControlerDecode.elf 
+arm-none-eabi-objdump -h -S  IrControlerDecode.elf  > "IrControlerDecode.list"
+arm-none-eabi-objcopy  -O binary  IrControlerDecode.elf  "IrControlerDecode.bin"
+   text	   data	    bss	    dec	    hex	filename
+   9392	     24	   1692	  11108	   2b64	IrControlerDecode.elf
+Finished building: default.size.stdout
+ 
+Finished building: IrControlerDecode.bin
+ 
+Finished building: IrControlerDecode.list
+ 
+19:36:39 **** Incremental Build of configuration Debug for project IrControlerDecode ****
+make -j8 all 
+arm-none-eabi-g++ "../CPP/Src/sensorIrClass.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Src" -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Inc" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"CPP/Src/sensorIrClass.d" -MT"CPP/Src/sensorIrClass.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "CPP/Src/sensorIrClass.o"
+arm-none-eabi-g++ -o "IrControlerDecode.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\GitHub\IrReceiverDecoder\IrControlerDecode\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="IrControlerDecode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: IrControlerDecode.elf
+ 
+arm-none-eabi-size   IrControlerDecode.elf 
+arm-none-eabi-objdump -h -S  IrControlerDecode.elf  > "IrControlerDecode.list"
+arm-none-eabi-objcopy  -O binary  IrControlerDecode.elf  "IrControlerDecode.bin"
+   text	   data	    bss	    dec	    hex	filename
+   9436	     24	   1692	  11152	   2b90	IrControlerDecode.elf
+Finished building: default.size.stdout
+ 
+Finished building: IrControlerDecode.bin
+ 
+Finished building: IrControlerDecode.list
+ 
+19:37:42 **** Incremental Build of configuration Debug for project IrControlerDecode ****
+make -j8 all 
+arm-none-eabi-g++ "../CPP/Src/sensorIrClass.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Src" -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Inc" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"CPP/Src/sensorIrClass.d" -MT"CPP/Src/sensorIrClass.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "CPP/Src/sensorIrClass.o"
+arm-none-eabi-g++ -o "IrControlerDecode.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\GitHub\IrReceiverDecoder\IrControlerDecode\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="IrControlerDecode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: IrControlerDecode.elf
+ 
+arm-none-eabi-size   IrControlerDecode.elf 
+arm-none-eabi-objdump -h -S  IrControlerDecode.elf  > "IrControlerDecode.list"
+arm-none-eabi-objcopy  -O binary  IrControlerDecode.elf  "IrControlerDecode.bin"
+   text	   data	    bss	    dec	    hex	filename
+   9444	     24	   1692	  11160	   2b98	IrControlerDecode.elf
+Finished building: default.size.stdout
+ 
+Finished building: IrControlerDecode.bin
+ 
+Finished building: IrControlerDecode.list
+ 
+19:40:42 **** Incremental Build of configuration Debug for project IrControlerDecode ****
+make -j8 all 
+arm-none-eabi-g++ "../CPP/Src/Interruption.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Src" -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Inc" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"CPP/Src/Interruption.d" -MT"CPP/Src/Interruption.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "CPP/Src/Interruption.o"
+arm-none-eabi-g++ "../CPP/Src/mainCpp.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Src" -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Inc" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"CPP/Src/mainCpp.d" -MT"CPP/Src/mainCpp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "CPP/Src/mainCpp.o"
+arm-none-eabi-g++ "../CPP/Src/sensorIrClass.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Src" -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Inc" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"CPP/Src/sensorIrClass.d" -MT"CPP/Src/sensorIrClass.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "CPP/Src/sensorIrClass.o"
+arm-none-eabi-g++ -o "IrControlerDecode.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\GitHub\IrReceiverDecoder\IrControlerDecode\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="IrControlerDecode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: IrControlerDecode.elf
+ 
+arm-none-eabi-size   IrControlerDecode.elf 
+arm-none-eabi-objdump -h -S  IrControlerDecode.elf  > "IrControlerDecode.list"
+arm-none-eabi-objcopy  -O binary  IrControlerDecode.elf  "IrControlerDecode.bin"
+   text	   data	    bss	    dec	    hex	filename
+   9432	     24	   1692	  11148	   2b8c	IrControlerDecode.elf
+Finished building: default.size.stdout
+ 
+Finished building: IrControlerDecode.bin
+ 
+Finished building: IrControlerDecode.list
+ 
+19:41:16 **** Incremental Build of configuration Debug for project IrControlerDecode ****
+make -j8 all 
+arm-none-eabi-size   IrControlerDecode.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9432	     24	   1692	  11148	   2b8c	IrControlerDecode.elf
+Finished building: default.size.stdout
+ 
+19:42:19 **** Incremental Build of configuration Debug for project IrControlerDecode ****
+make -j8 all 
+arm-none-eabi-g++ "../CPP/Src/sensorIrClass.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Src" -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Inc" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"CPP/Src/sensorIrClass.d" -MT"CPP/Src/sensorIrClass.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "CPP/Src/sensorIrClass.o"
+arm-none-eabi-g++ -o "IrControlerDecode.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\GitHub\IrReceiverDecoder\IrControlerDecode\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="IrControlerDecode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: IrControlerDecode.elf
+ 
+arm-none-eabi-size   IrControlerDecode.elf 
+arm-none-eabi-objdump -h -S  IrControlerDecode.elf  > "IrControlerDecode.list"
+arm-none-eabi-objcopy  -O binary  IrControlerDecode.elf  "IrControlerDecode.bin"
+   text	   data	    bss	    dec	    hex	filename
+   9436	     24	   1692	  11152	   2b90	IrControlerDecode.elf
+Finished building: default.size.stdout
+ 
+Finished building: IrControlerDecode.bin
+ 
+Finished building: IrControlerDecode.list
+ 
+19:42:59 **** Incremental Build of configuration Debug for project IrControlerDecode ****
+make -j8 all 
+arm-none-eabi-g++ "../CPP/Src/sensorIrClass.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Src" -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Inc" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"CPP/Src/sensorIrClass.d" -MT"CPP/Src/sensorIrClass.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "CPP/Src/sensorIrClass.o"
+arm-none-eabi-g++ -o "IrControlerDecode.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\GitHub\IrReceiverDecoder\IrControlerDecode\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="IrControlerDecode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: IrControlerDecode.elf
+ 
+arm-none-eabi-size   IrControlerDecode.elf 
+arm-none-eabi-objdump -h -S  IrControlerDecode.elf  > "IrControlerDecode.list"
+arm-none-eabi-objcopy  -O binary  IrControlerDecode.elf  "IrControlerDecode.bin"
+   text	   data	    bss	    dec	    hex	filename
+   9448	     24	   1692	  11164	   2b9c	IrControlerDecode.elf
+Finished building: default.size.stdout
+ 
+Finished building: IrControlerDecode.bin
+ 
+Finished building: IrControlerDecode.list
+ 
+19:45:57 **** Incremental Build of configuration Debug for project IrControlerDecode ****
+make -j8 all 
+arm-none-eabi-size   IrControlerDecode.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9448	     24	   1692	  11164	   2b9c	IrControlerDecode.elf
+Finished building: default.size.stdout
+ 
+19:52:10 **** Incremental Build of configuration Debug for project IrControlerDecode ****
+make -j8 all 
+arm-none-eabi-g++ "../CPP/Src/sensorIrClass.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Src" -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Inc" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"CPP/Src/sensorIrClass.d" -MT"CPP/Src/sensorIrClass.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "CPP/Src/sensorIrClass.o"
+arm-none-eabi-g++ -o "IrControlerDecode.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\GitHub\IrReceiverDecoder\IrControlerDecode\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="IrControlerDecode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: IrControlerDecode.elf
+ 
+arm-none-eabi-size   IrControlerDecode.elf 
+arm-none-eabi-objdump -h -S  IrControlerDecode.elf  > "IrControlerDecode.list"
+arm-none-eabi-objcopy  -O binary  IrControlerDecode.elf  "IrControlerDecode.bin"
+   text	   data	    bss	    dec	    hex	filename
+   9436	     24	   1692	  11152	   2b90	IrControlerDecode.elf
+Finished building: default.size.stdout
+ 
+Finished building: IrControlerDecode.bin
+ 
+Finished building: IrControlerDecode.list
+ 
+19:52:36 **** Incremental Build of configuration Debug for project IrControlerDecode ****
+make -j8 all 
+arm-none-eabi-size   IrControlerDecode.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9436	     24	   1692	  11152	   2b90	IrControlerDecode.elf
+Finished building: default.size.stdout
+ 
+19:53:29 **** Incremental Build of configuration Debug for project IrControlerDecode ****
+make -j8 all 
+arm-none-eabi-g++ "../CPP/Src/sensorIrClass.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Src" -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Inc" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"CPP/Src/sensorIrClass.d" -MT"CPP/Src/sensorIrClass.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "CPP/Src/sensorIrClass.o"
+arm-none-eabi-g++ -o "IrControlerDecode.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\GitHub\IrReceiverDecoder\IrControlerDecode\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="IrControlerDecode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: IrControlerDecode.elf
+ 
+arm-none-eabi-size   IrControlerDecode.elf 
+arm-none-eabi-objdump -h -S  IrControlerDecode.elf  > "IrControlerDecode.list"
+arm-none-eabi-objcopy  -O binary  IrControlerDecode.elf  "IrControlerDecode.bin"
+   text	   data	    bss	    dec	    hex	filename
+   9432	     24	   1692	  11148	   2b8c	IrControlerDecode.elf
+Finished building: default.size.stdout
+ 
+Finished building: IrControlerDecode.bin
+ 
+Finished building: IrControlerDecode.list
+ 
+19:54:11 **** Incremental Build of configuration Debug for project IrControlerDecode ****
+make -j8 all 
+arm-none-eabi-size   IrControlerDecode.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9432	     24	   1692	  11148	   2b8c	IrControlerDecode.elf
+Finished building: default.size.stdout
+ 
+19:55:50 **** Incremental Build of configuration Debug for project IrControlerDecode ****
+make -j8 all 
+arm-none-eabi-g++ "../CPP/Src/sensorIrClass.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Src" -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Inc" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"CPP/Src/sensorIrClass.d" -MT"CPP/Src/sensorIrClass.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "CPP/Src/sensorIrClass.o"
+arm-none-eabi-g++ -o "IrControlerDecode.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\GitHub\IrReceiverDecoder\IrControlerDecode\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="IrControlerDecode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: IrControlerDecode.elf
+ 
+arm-none-eabi-size   IrControlerDecode.elf 
+arm-none-eabi-objdump -h -S  IrControlerDecode.elf  > "IrControlerDecode.list"
+arm-none-eabi-objcopy  -O binary  IrControlerDecode.elf  "IrControlerDecode.bin"
+   text	   data	    bss	    dec	    hex	filename
+   9432	     24	   1692	  11148	   2b8c	IrControlerDecode.elf
+Finished building: default.size.stdout
+ 
+Finished building: IrControlerDecode.bin
+ 
+Finished building: IrControlerDecode.list
+ 
+19:59:29 **** Incremental Build of configuration Debug for project IrControlerDecode ****
+make -j8 all 
+arm-none-eabi-size   IrControlerDecode.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9432	     24	   1692	  11148	   2b8c	IrControlerDecode.elf
+Finished building: default.size.stdout
+ 
+19:59:43 **** Incremental Build of configuration Debug for project IrControlerDecode ****
+make -j8 all 
+arm-none-eabi-size   IrControlerDecode.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9432	     24	   1692	  11148	   2b8c	IrControlerDecode.elf
+Finished building: default.size.stdout
+ 
+20:01:00 **** Incremental Build of configuration Debug for project IrControlerDecode ****
+make -j8 all 
+arm-none-eabi-g++ "../CPP/Src/sensorIrClass.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Src" -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Inc" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"CPP/Src/sensorIrClass.d" -MT"CPP/Src/sensorIrClass.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "CPP/Src/sensorIrClass.o"
+arm-none-eabi-g++ -o "IrControlerDecode.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\GitHub\IrReceiverDecoder\IrControlerDecode\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="IrControlerDecode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: IrControlerDecode.elf
+ 
+arm-none-eabi-size   IrControlerDecode.elf 
+arm-none-eabi-objdump -h -S  IrControlerDecode.elf  > "IrControlerDecode.list"
+arm-none-eabi-objcopy  -O binary  IrControlerDecode.elf  "IrControlerDecode.bin"
+   text	   data	    bss	    dec	    hex	filename
+   9432	     24	   1692	  11148	   2b8c	IrControlerDecode.elf
+Finished building: default.size.stdout
+ 
+Finished building: IrControlerDecode.bin
+ 
+Finished building: IrControlerDecode.list
+ 
+20:01:53 **** Incremental Build of configuration Debug for project IrControlerDecode ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/GitHub/IrReceiverDecoder/IrControlerDecode/CPP/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-g++ -o "IrControlerDecode.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\GitHub\IrReceiverDecoder\IrControlerDecode\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="IrControlerDecode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: IrControlerDecode.elf
+ 
+arm-none-eabi-size   IrControlerDecode.elf 
+arm-none-eabi-objdump -h -S  IrControlerDecode.elf  > "IrControlerDecode.list"
+arm-none-eabi-objcopy  -O binary  IrControlerDecode.elf  "IrControlerDecode.bin"
+   text	   data	    bss	    dec	    hex	filename
+   9404	     24	   1692	  11120	   2b70	IrControlerDecode.elf
 Finished building: default.size.stdout
  
 Finished building: IrControlerDecode.bin
