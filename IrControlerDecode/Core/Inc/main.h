@@ -53,8 +53,6 @@ extern "C" {
 void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
-void sinalDecode();
-void getCode(uint16_t);
 void mainCpp();
 void Interruption();
 /* USER CODE END EFP */

@@ -9,7 +9,7 @@ protected:
 	uint16_t _Pin;
 
 	uint16_t timeON, timeOFF, timeON2, timeOFF2, time, time2, lock, count, flagCounting;
-	uint32_t decodeSignal, Signal;
+	uint32_t decodeSignal, Signal, finalSignal, StartfinalSignal;
 	int flag, bit, timeReset;
 	int protocol, debugCounting;
 	enum {NEC, SIRC};

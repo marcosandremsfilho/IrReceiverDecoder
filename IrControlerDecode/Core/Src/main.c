@@ -57,6 +57,8 @@ static void MX_TIM1_Init(void);
 /* USER CODE BEGIN 0 */
 uint16_t microsecondsTime;
 int inicial;
+int interrup;
+int valordopino;
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 	if(GPIO_Pin == SensorIR_Pin) {
@@ -106,6 +108,8 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	  interrup++;
+	  valordopino = HAL_GPIO_ReadPin(SensorIR_GPIO_Port, SensorIR_Pin);
 	  mainCpp();
 
   }
