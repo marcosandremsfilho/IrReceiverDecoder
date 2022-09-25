@@ -8,13 +8,16 @@ SensorIR :: SensorIR(GPIO_TypeDef* Port, uint16_t Pin) {
 }
 
 void SensorIR::getTime() {
-	if (timeReset == 0) {
+	bitAux++;
+	if((bitAux >= 36 && protocol == NEC) || (bitAux >= 16 && protocol == SIRC)) {
+		Reset();
+	} else if (timeReset == 0) {
+		decodeSignal = 0;
+		bitAux = 0;
 		switch (flag) {
 			case 0: timeON = 0;
-					resetMicros();
 					timeON = HAL_GetTick();
 					flag = 1;
-					if(bit == 32 && protocol == NEC) Reset();
 					return;
 					break;
 
@@ -25,13 +28,13 @@ void SensorIR::getTime() {
 					decodeSignal = 0;
 					break;
 		}
-	}else if (timeReset == 1) {
+	} else if (timeReset == 1) {
 		decision();
 	}
 }
 
 void SensorIR::decision() {
-	if (time > 1 && time < 4 ) {
+	if (time > 2 && time < 4 ) {
 		decodeSIRCSignalFunction();
 	} else if (time > 12 && time < 15) {
 		decodeNECSignalFunction();
@@ -43,6 +46,7 @@ void SensorIR::counting() {
 	case 0: resetMicros();
 			timeON2 = micros();
 			flagCounting = 1;
+			return;
 			break;
 	case 1: timeOFF2 = micros();
 			time2 =  timeOFF2 - timeON2;
@@ -59,7 +63,9 @@ void SensorIR::Reset() {
 	bit = 0;
 	flagCounting = 0;
 	finalSignal = 0;
-
+	bitAux = 0;
+	count = 0;
+	time = 0;
 }
 
 void SensorIR::decodeNECSignalFunction() {
@@ -73,9 +79,9 @@ void SensorIR::decodeNECSignalFunction() {
 	} else if (time2 > 2000 && time2 < 2400) {
 		decodeSignal = (decodeSignal << 1) + 1;
 		bit++;
-	}
+	} else if (bit > 0 && (time2 < 1000 && time2 > 2400)) Reset();
 
-	if(bit >= 32) {
+	if(bit == 32 && protocol == NEC) {
 		Signal = decodeSignal;
 	}
 }
@@ -91,7 +97,7 @@ void SensorIR::decodeSIRCSignalFunction() {
 	} else if (time2 > 1700 && time2 < 1900 && bit < 16) {
 		decodeSignal = (decodeSignal << 1) + 1;
 		bit++;
-	}
+	} else Reset();
 	if (bit >= 16) {
 		Reset();
 	}

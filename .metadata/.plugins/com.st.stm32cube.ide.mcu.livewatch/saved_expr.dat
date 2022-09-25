@@ -9,3 +9,5 @@ sensor.flag
 interrup
 valordopino
 sensor.finalSignal
+sensor.protocol
+sensor.bitAux

@@ -1,10 +1,10 @@
-20:58:12 **** Incremental Build of configuration Debug for project IrControlerDecode ****
+15:30:57 **** Incremental Build of configuration Debug for project IrControlerDecode ****
 make -j8 all 
 arm-none-eabi-size   IrControlerDecode.elf 
    text	   data	    bss	    dec	    hex	filename
-   9468	     24	   1708	  11200	   2bc0	IrControlerDecode.elf
+   9568	     24	   1716	  11308	   2c2c	IrControlerDecode.elf
 Finished building: default.size.stdout
  
 
-20:58:12 Build Finished. 0 errors, 0 warnings. (took 238ms)
+15:30:57 Build Finished. 0 errors, 0 warnings. (took 186ms)
 

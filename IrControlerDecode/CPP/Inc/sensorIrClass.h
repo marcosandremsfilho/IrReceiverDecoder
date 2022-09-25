@@ -10,9 +10,9 @@ protected:
 
 	uint16_t timeON, timeOFF, timeON2, timeOFF2, time, time2, lock, count, flagCounting;
 	uint32_t decodeSignal, Signal, finalSignal, StartfinalSignal;
-	int flag, bit, timeReset;
+	int flag, bit, bitAux, timeReset;
 	int protocol, debugCounting;
-	enum {NEC, SIRC};
+	enum {NEC, SIRC, UNKNOWN};
 public:
 	SensorIR(GPIO_TypeDef*, uint16_t);
 	void getTime();
