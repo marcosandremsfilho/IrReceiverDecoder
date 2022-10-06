@@ -57,11 +57,6 @@ static void MX_GPIO_Init(void);
 uint8_t count=0, receiving = 0;
 uint32_t data;
 
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
-	if (GPIO_Pin == IR_Pin && receiving == 0) {
-		receiving = 1;
-	}
-}
 
 
 
@@ -74,21 +69,49 @@ uint32_t receive_data (void) {
 
 	for(int i=0; i<32; i++) {
 		count = 0;
-		while(!(HAL_GPIO_ReadPin (IR_GPIO_Port, IR_Pin)));
-		while(HAL_GPIO_ReadPin(IR_GPIO_Port, IR_Pin)) {
+		while(!(HAL_GPIO_ReadPin (IR_GPIO_Port, IR_Pin))){
 			count++;
 			delay_us(100);
 		}
+		if(count < 40 && count < 50) {
+			count = 0;
+			while(HAL_GPIO_ReadPin(IR_GPIO_Port, IR_Pin)) {
+				count++;
+				delay_us(100);
+			}
 
-		if(count > 12) {
-			code |= (1UL << (31 - i));
-		} else {
-			code &= ~(1UL << (31 - i));
+			if(count > 12) {
+				code |= (1UL << (31 - i));
+			} else {
+				code &= ~(1UL << (31 - i));
+			}
+		} else if (count > 20 && count < 30) {
+			count = 0;
+			while(HAL_GPIO_ReadPin(IR_GPIO_Port, IR_Pin)) {
+				count++;
+				delay_us(100);
+			}
+
+			if(count > 10) {
+				code |= (1UL << (15 - i));
+			} else {
+				code &= ~(1UL << (15 - i));
+			}
+
+			if(i == 15){
+				break;
+			}
 		}
 	}
 
 	return code;
 }
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
+	if (GPIO_Pin == IR_Pin && receiving == 0) {
+		receiving = 1;
+	}
+}
+
 /* USER CODE END 0 */
 
 /**
@@ -104,7 +127,8 @@ int main(void)
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  HAL_Init();
+
+	HAL_Init();
 
   /* USER CODE BEGIN Init */
 
@@ -130,13 +154,12 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  while (HAL_GPIO_ReadPin(IR_GPIO_Port, IR_Pin));
-
+	  if (receiving) {
 		  data = receive_data();
+
+		  HAL_Delay(100);
 		  receiving = 0;
-
-
-	  HAL_Delay(100);
+	  }
   }
   /* USER CODE END 3 */
 }
@@ -197,6 +220,10 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(IR_GPIO_Port, &GPIO_InitStruct);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
 
 }
 
