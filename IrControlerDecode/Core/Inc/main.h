@@ -7,12 +7,13 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2022 STMicroelectronics.
-  * All rights reserved.
+  * <h2><center>&copy; Copyright (c) 2022 STMicroelectronics.
+  * All rights reserved.</center></h2>
   *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
+  * This software component is licensed by ST under BSD 3-Clause license,
+  * the "License"; You may not use this file except in compliance with the
+  * License. You may obtain a copy of the License at:
+  *                        opensource.org/licenses/BSD-3-Clause
   *
   ******************************************************************************
   */
@@ -53,22 +54,12 @@ extern "C" {
 void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
-void sinalDecode();
-void getCode();
+
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define LED1_Pin GPIO_PIN_4
-#define LED1_GPIO_Port GPIOC
-#define LED2_Pin GPIO_PIN_5
-#define LED2_GPIO_Port GPIOC
-#define LED3_Pin GPIO_PIN_0
-#define LED3_GPIO_Port GPIOB
-#define LED4_Pin GPIO_PIN_1
-#define LED4_GPIO_Port GPIOB
-#define SensorIR_Pin GPIO_PIN_8
-#define SensorIR_GPIO_Port GPIOB
-#define SensorIR_EXTI_IRQn EXTI9_5_IRQn
+#define IR_Pin GPIO_PIN_8
+#define IR_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
@@ -78,3 +69,5 @@ void getCode();
 #endif
 
 #endif /* __MAIN_H */
+
+/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
